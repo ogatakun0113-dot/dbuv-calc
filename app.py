@@ -1,15 +1,27 @@
 import streamlit as st
 import math
 
+# --- ページ設定 ---
+st.set_page_config(page_title="dBμV→dBm変換アプリ", layout="centered")
+
 # --- 見た目の設定（CSS） ---
 st.markdown("""
     <style>
+    /* クレジット表示用のCSS */
+    .credit {
+        text-align: right;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: -20px;
+    }
+    /* 入力欄のラベルを大きく、太く、赤くする */
     .stNumberInput label {
         font-size: 32px !important;
-        color: #FF4B4B !important; /* 電圧入力は赤系で目立たせます */
+        color: #FF4B4B !important;
         font-weight: 800 !important;
         line-height: 1.5;
     }
+    /* 入力枠内の数字そのものを大きくする */
     div[data-baseweb="input"] {
         height: 60px !important;
         font-size: 28px !important;
@@ -18,6 +30,9 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
+# 右上にクレジットを表示
+st.markdown('<p class="credit">開発/制作：緒方</p>', unsafe_allow_html=True)
 
 st.title('📡 dBμV → dBm 変換アプリ')
 st.markdown("---")
